@@ -7,11 +7,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SecondEgSA.Model;
 
 namespace SecondEgSA
 {
     public partial class Form3 : Form
     {
+        #region Function
+        static string Checklength_hex(int num)
+        {
+            string lol;
+            if (num <= 15) return lol = "0" + Convert.ToString(num, 16);
+
+            else return lol = Convert.ToString(num, 16);
+
+        }
+
+        static Boolean Checklength_temp(string text_1)
+        {
+            if (text_1.Length > 2)
+            {
+                MessageBox.Show("Enter number loweer than 2 ");
+                return false;
+
+            }
+
+
+            else
+            {
+                return true;
+            }
+        }
+        #endregion
+        #region declare
+        int Suq = 0;
+        EgSa EgSA = new EgSa();
+        combob combobo1, combobo2;
+        ComboBox Cb = new ComboBox();
+        #endregion
         public Form3()
         {
             InitializeComponent();
@@ -54,6 +87,240 @@ namespace SecondEgSA
 
         private void label3_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            combobo1 = (combob)guna2ComboBox1.SelectedItem;
+
+
+            listBox1.Items.Clear();
+
+            if (combobo1.id == 5)
+            {
+                var query_all = EgSA.Commands.ToList();
+                foreach (var c in query_all)
+                {
+                    listBox1.Items.Add(new combob(c.com_id, c.com_description));
+                }
+
+
+            }
+            else
+            {
+                var query = EgSA.Commands.Where(o => o.sub_ID == combobo1.id).ToList();
+                foreach (var item in query)
+                {
+                    listBox1.Items.Add(new combob(item.com_id, item.com_description));
+                }
+            }
+        }
+
+        private void guna2PictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            combobo2 = (combob)listBox1.SelectedItem;
+            //var g = comboBox1.SelectedIndex; // get index from combobox
+            //g++;
+            //z = combobo2.id;
+
+
+            var H = EgSA.Commands.Where(o => o.com_id == combobo2.id).FirstOrDefault(); // select first command when equal com_id  
+            var m = EgSA.CoM_Param.Where(n => n.com_id == H.com_id).ToList();
+            guna2ComboBox3.Hide();
+
+            guna2TextBox1.Hide();
+
+            guna2DateTimePicker1.Hide();
+            foreach (var n in m)
+            {
+                var p = n.param_type;
+                switch (p)
+                {
+                    case 1:
+                        guna2TextBox1.Show();
+                        break;
+
+                    case 2:
+                        var get_devices_Param = EgSA.Param_Value.Select(c => c.description).ToList();
+
+                        foreach (var de in get_devices_Param)
+                        {
+                            guna2ComboBox3.Items.Add(de);
+
+                        }
+                        guna2ComboBox3.Show();
+                        break;
+
+                    case 3:
+                        guna2DateTimePicker1.Show();
+                        break;
+
+                    default:
+                        MessageBox.Show("No param");
+                        break;
+                }
+
+
+
+
+
+            }
+        }
+
+        private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        string packet = "";
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            
+
+            var H = EgSA.Commands.Where(o => o.com_id ==combobo2.id).FirstOrDefault();
+
+
+            var f = EgSA.CoM_Param.Where(o => o.com_id == H.com_id).FirstOrDefault();
+            var code = "GZ";// convert to hex to arduino 
+            while (true)
+            {
+                if (f != null)
+                {
+                    if (Checklength_temp(guna2TextBox2.Text) == false || Checklength_temp(guna2TextBox3.Text) == false)
+                        break;
+                    //Checklength_temp(textBox2.Text);
+                    //Checklength_temp(textBox3.Text);
+                    Suq++;
+
+                    guna2DataGridView1.Rows.Add(Suq, combobo1.name,
+                        combobo2.name,
+                        guna2TextBox3.Text,
+                        guna2TextBox2.Text,
+                        (guna2ComboBox3.SelectedItem == null) ? "" : guna2ComboBox3.SelectedItem.ToString(),
+                        guna2TextBox1.Text,
+                        guna2DateTimePicker1.Value);
+                    var get_repeat = Checklength_hex(Convert.ToInt32(guna2TextBox2.Text));
+                    var get_delay = Checklength_hex(Convert.ToInt32(guna2TextBox3.Text));
+                    //int Ind_2 = comboBox2.SelectedIndex + 1;
+                    var load_Param_type = EgSA.param_TB_type.Where(o => o.param_ID == f.param_type).FirstOrDefault();
+
+
+                    var com_name = Checklength_hex(H.com_id);
+                    var sub_name = Checklength_hex(combobo1.id);
+
+
+
+                    //if (Ind_2 <= 15) lol1 = "0" + Convert.ToString(Ind_2, 16); 
+                    //else lol1 = Convert.ToString(Ind_2, 16);
+
+
+                    MessageBox.Show(code + com_name + sub_name + get_repeat + get_delay + code);
+                    packet += (code + com_name + sub_name + get_repeat + get_delay + code) ;
+                    break;
+                }
+                else
+                {
+
+                    var anthor_serial_command = H.com_id;
+                    if (anthor_serial_command <= 15) MessageBox.Show(code + "0" + anthor_serial_command + code);
+                    else MessageBox.Show(code + anthor_serial_command + code);
+                    Suq++;
+
+                    guna2DataGridView1.Rows.Add(Suq, combobo1.name,
+                        combobo2.name,
+                        guna2TextBox3.Text,
+                        guna2TextBox2.Text,
+                        (guna2ComboBox3.SelectedItem == null) ? "" : guna2ComboBox3.SelectedItem.ToString(),
+                        guna2TextBox1.Text,
+                        guna2DateTimePicker1.Value);
+                    break;
+                }
+            }
+            guna2TextBox1.Clear();
+            guna2TextBox2.Clear();
+            guna2TextBox3.Clear();
+            guna2ComboBox3.Items.Clear();
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            var Get_last_planID = EgSA.plan_.AsEnumerable().LastOrDefault().plan_ID;
+            int last_ID = Get_last_planID + 1;
+            //var Get_Command = 
+            //var Get_sub = EgSA.Subsystems.to
+
+
+
+
+            for (int i = 0; i < guna2DataGridView1.Rows.Count; i++)
+            {
+                var Com_id = guna2DataGridView1.Rows[i].Cells["Column3"].Value.ToString();
+                var Sub_name = guna2DataGridView1.Rows[i].Cells["Column2"].Value.ToString();
+                plan_ p = new plan_
+                {
+                    com_ID = EgSA.Commands.Where(o => o.com_description == Com_id).FirstOrDefault().com_id,
+
+                    sub_ID = EgSA.Subsystems.Where(o => o.Sub_name == Sub_name).FirstOrDefault().Sub_ID,
+                    para1_desc = guna2DataGridView1.Rows[i].Cells["Column6"].Value.ToString(),
+                    para2_desc = Convert.ToString(guna2DataGridView1.Rows[i].Cells["Column7"].Value),
+                    para3_desc = " ",
+                    squn_command = i + 1,
+                    plan_ID = last_ID
+                ,
+                    delay = guna2DataGridView1.Rows[i].Cells["Column4"].Value.ToString(),
+                    EX_time = guna2DataGridView1.Rows[i].Cells["Column8"].Value.ToString(),
+                    repeat = guna2DataGridView1.Rows[i].Cells["Column5"].Value.ToString()
+                };
+
+                EgSA.plan_.Add(p);
+                EgSA.SaveChanges();
+            }
+
+
+            guna2ComboBox3.Hide();
+            guna2DateTimePicker1.Hide();
+            guna2TextBox1.Hide();
+
+            guna2DataGridView1.Rows.Clear();
+            MessageBox.Show(packet);
+            packet = "";
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            guna2ComboBox3.Hide(); // hide combobox 
+            guna2TextBox1.Hide(); // hide textBox
+            guna2DateTimePicker1.Hide(); // ......
+            var G = EgSA.Commands.ToList(); // select all in table and put in list
+
+            //foreach (var o in G)  // add all com_type in table 
+            //{
+            //    comboBox1.Items.Add(o.com_description);
+            //}
+
+            var get_devices = EgSA.Subsystems.ToList();
+            // select all in table and put in list
+            foreach (var f in get_devices)
+            {
+                //comboBox2.Items.Add(f.Sub_name);// add all subsystem
+                //comboBox2.Items.Insert(f.Sub_ID,f.Sub_name);
+                guna2ComboBox1.Items.Add(new combob(f.Sub_ID, f.Sub_name));
+
+
+            }
+
+            //var get_devices_Param = EgSA.Param_Value.Select(c => c.description).ToList();
+
+            //foreach (var de in get_devices_Param)
+            //{
+            //    guna2ComboBox3.Items.Add(de);
+
+            //}
 
         }
     }
