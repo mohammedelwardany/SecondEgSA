@@ -26,7 +26,7 @@ namespace SecondEgSA.Model
 
         public int? com_ID { get; set; }
 
-        public string EX_time { get; set; }
+        public DateTime? EX_time { get; set; }
 
         public int? sub_ID { get; set; }
 
@@ -47,6 +47,7 @@ namespace SecondEgSA.Model
         public virtual ACK ACK { get; set; }
 
         public virtual Command Command { get; set; }
+        // public int repeat { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<plan_result> plan_result { get; set; }

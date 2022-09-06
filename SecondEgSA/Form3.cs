@@ -268,17 +268,20 @@ namespace SecondEgSA
                     sub_ID = EgSA.Subsystems.Where(o => o.Sub_name == Sub_name).FirstOrDefault().Sub_ID,
                     para1_desc = guna2DataGridView1.Rows[i].Cells["Column6"].Value.ToString(),
                     para2_desc = Convert.ToString(guna2DataGridView1.Rows[i].Cells["Column7"].Value),
-                    para3_desc = " ",
+                    para3_desc = guna2DataGridView1.Rows[i].Cells["Column8"].Value.ToString(),
                     squn_command = i + 1,
                     plan_ID = last_ID
                 ,
                     delay = guna2DataGridView1.Rows[i].Cells["Column4"].Value.ToString(),
-                    EX_time = guna2DataGridView1.Rows[i].Cells["Column8"].Value.ToString(),
+                    //EX_time = guna2DataGridView1.Rows[i].Cells["Column8"].Value.ToString(),
                     repeat = guna2DataGridView1.Rows[i].Cells["Column5"].Value.ToString()
                 };
 
                 EgSA.plan_.Add(p);
                 EgSA.SaveChanges();
+                Form2 form2 = new Form2();
+                form2.Show();
+                this.Hide();
             }
 
 
