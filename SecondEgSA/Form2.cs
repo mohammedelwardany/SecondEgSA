@@ -34,7 +34,8 @@ namespace SecondEgSA
 
         private void Form2_Load(object sender, EventArgs e)
         {
- 
+            
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,7 +45,7 @@ namespace SecondEgSA
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -53,13 +54,24 @@ namespace SecondEgSA
             myport.BaudRate = 9600;
             myport.PortName = "COM3";
             myport.Open();
-            myport.WriteLine("d");
+            //myport.WriteLine("d");
             while (true)
             {
                 listView1.Items.Add(myport.ReadLine());
-                
+
             }
             myport.Close();
+
+        }
+
+        private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

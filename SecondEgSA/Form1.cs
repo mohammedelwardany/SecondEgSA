@@ -50,7 +50,14 @@ namespace SecondEgSA
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            
+            Form3 form3 = new Form3();
+            form3.Show();
+            this.Hide();
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

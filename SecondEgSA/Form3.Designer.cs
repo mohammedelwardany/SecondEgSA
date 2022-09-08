@@ -76,8 +76,6 @@ namespace SecondEgSA
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,13 +85,15 @@ namespace SecondEgSA
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -121,7 +121,7 @@ namespace SecondEgSA
             this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox1.ItemHeight = 15;
             this.guna2ComboBox1.Location = new System.Drawing.Point(408, 196);
-            this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2ComboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
             this.guna2ComboBox1.Size = new System.Drawing.Size(237, 21);
             this.guna2ComboBox1.TabIndex = 13;
@@ -139,7 +139,7 @@ namespace SecondEgSA
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2Button3.Location = new System.Drawing.Point(408, 603);
-            this.guna2Button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Button3.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(237, 38);
             this.guna2Button3.TabIndex = 19;
@@ -157,12 +157,13 @@ namespace SecondEgSA
             this.guna2Button1.FillColor = System.Drawing.Color.White;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2Button1.Location = new System.Drawing.Point(408, 650);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Button1.Location = new System.Drawing.Point(409, 775);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(109, 39);
+            this.guna2Button1.Size = new System.Drawing.Size(236, 39);
             this.guna2Button1.TabIndex = 18;
-            this.guna2Button1.Text = "EDIT";
+            this.guna2Button1.Text = "Execute";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // guna2ComboBox3
             // 
@@ -176,7 +177,7 @@ namespace SecondEgSA
             this.guna2ComboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox3.ItemHeight = 15;
             this.guna2ComboBox3.Location = new System.Drawing.Point(408, 441);
-            this.guna2ComboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2ComboBox3.Margin = new System.Windows.Forms.Padding(4);
             this.guna2ComboBox3.Name = "guna2ComboBox3";
             this.guna2ComboBox3.Size = new System.Drawing.Size(237, 21);
             this.guna2ComboBox3.TabIndex = 17;
@@ -196,7 +197,7 @@ namespace SecondEgSA
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Location = new System.Drawing.Point(408, 377);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PasswordChar = '\0';
             this.guna2TextBox1.PlaceholderText = "";
@@ -215,7 +216,7 @@ namespace SecondEgSA
             this.guna2DateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Long;
             this.guna2DateTimePicker1.Location = new System.Drawing.Point(408, 313);
-            this.guna2DateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2DateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2DateTimePicker1.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.guna2DateTimePicker1.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.guna2DateTimePicker1.Name = "guna2DateTimePicker1";
@@ -235,7 +236,7 @@ namespace SecondEgSA
             this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2Button4.Location = new System.Drawing.Point(523, 650);
-            this.guna2Button4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Button4.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.Size = new System.Drawing.Size(123, 39);
             this.guna2Button4.TabIndex = 21;
@@ -253,12 +254,12 @@ namespace SecondEgSA
             this.guna2Button2.FillColor = System.Drawing.Color.White;
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2Button2.Location = new System.Drawing.Point(408, 783);
-            this.guna2Button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Button2.Location = new System.Drawing.Point(409, 649);
+            this.guna2Button2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(237, 39);
+            this.guna2Button2.Size = new System.Drawing.Size(106, 39);
             this.guna2Button2.TabIndex = 20;
-            this.guna2Button2.Text = "EXCUTE";
+            this.guna2Button2.Text = "Save";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
             // label2
@@ -293,7 +294,7 @@ namespace SecondEgSA
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(39, 229);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(336, 596);
             this.listBox1.TabIndex = 25;
@@ -313,7 +314,7 @@ namespace SecondEgSA
             this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox2.Location = new System.Drawing.Point(476, 507);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TextBox2.Name = "guna2TextBox2";
             this.guna2TextBox2.PasswordChar = '\0';
             this.guna2TextBox2.PlaceholderText = "";
@@ -335,7 +336,7 @@ namespace SecondEgSA
             this.guna2TextBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox3.Location = new System.Drawing.Point(476, 542);
-            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox3.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TextBox3.Name = "guna2TextBox3";
             this.guna2TextBox3.PasswordChar = '\0';
             this.guna2TextBox3.PlaceholderText = "";
@@ -357,7 +358,7 @@ namespace SecondEgSA
             this.guna2TextBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox4.Location = new System.Drawing.Point(40, 196);
-            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox4.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TextBox4.Name = "guna2TextBox4";
             this.guna2TextBox4.PasswordChar = '\0';
             this.guna2TextBox4.PlaceholderText = "";
@@ -373,7 +374,7 @@ namespace SecondEgSA
             this.label5.ForeColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(411, 293);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 17);
+            this.label5.Size = new System.Drawing.Size(82, 16);
             this.label5.TabIndex = 29;
             this.label5.Text = "time stamp";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -420,6 +421,7 @@ namespace SecondEgSA
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(713, 842);
             this.guna2Panel1.TabIndex = 32;
+            this.guna2Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel1_Paint);
             // 
             // guna2Button5
             // 
@@ -434,7 +436,7 @@ namespace SecondEgSA
             this.guna2Button5.Font = new System.Drawing.Font("Bookman Old Style", 20.25F, System.Drawing.FontStyle.Bold);
             this.guna2Button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2Button5.Location = new System.Drawing.Point(61, 15);
-            this.guna2Button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2Button5.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.Size = new System.Drawing.Size(65, 52);
             this.guna2Button5.TabIndex = 49;
@@ -461,7 +463,7 @@ namespace SecondEgSA
             this.label18.ForeColor = System.Drawing.Color.Transparent;
             this.label18.Location = new System.Drawing.Point(393, 478);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(204, 17);
+            this.label18.Size = new System.Drawing.Size(203, 16);
             this.label18.TabIndex = 46;
             this.label18.Text = "ـــــــــــــــــــــــــــــــــــــــــــــــــ";
             // 
@@ -473,7 +475,7 @@ namespace SecondEgSA
             this.label17.ForeColor = System.Drawing.Color.Transparent;
             this.label17.Location = new System.Drawing.Point(393, 233);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(204, 17);
+            this.label17.Size = new System.Drawing.Size(203, 16);
             this.label17.TabIndex = 45;
             this.label17.Text = "ـــــــــــــــــــــــــــــــــــــــــــــــــ";
             // 
@@ -485,7 +487,7 @@ namespace SecondEgSA
             this.label16.ForeColor = System.Drawing.Color.Transparent;
             this.label16.Location = new System.Drawing.Point(393, 571);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(204, 17);
+            this.label16.Size = new System.Drawing.Size(203, 16);
             this.label16.TabIndex = 44;
             this.label16.Text = "ـــــــــــــــــــــــــــــــــــــــــــــــــ";
             // 
@@ -497,7 +499,7 @@ namespace SecondEgSA
             this.label15.ForeColor = System.Drawing.Color.Transparent;
             this.label15.Location = new System.Drawing.Point(595, 513);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(46, 17);
+            this.label15.Size = new System.Drawing.Size(44, 16);
             this.label15.TabIndex = 43;
             this.label15.Text = "times";
             // 
@@ -509,7 +511,7 @@ namespace SecondEgSA
             this.label14.ForeColor = System.Drawing.Color.Transparent;
             this.label14.Location = new System.Drawing.Point(393, 699);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(204, 17);
+            this.label14.Size = new System.Drawing.Size(203, 16);
             this.label14.TabIndex = 42;
             this.label14.Text = "ـــــــــــــــــــــــــــــــــــــــــــــــــ";
             // 
@@ -521,7 +523,7 @@ namespace SecondEgSA
             this.label13.ForeColor = System.Drawing.Color.Transparent;
             this.label13.Location = new System.Drawing.Point(600, 548);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(28, 17);
+            this.label13.Size = new System.Drawing.Size(27, 16);
             this.label13.TabIndex = 41;
             this.label13.Text = "ms";
             // 
@@ -533,7 +535,7 @@ namespace SecondEgSA
             this.label12.ForeColor = System.Drawing.Color.Transparent;
             this.label12.Location = new System.Drawing.Point(633, 741);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(16, 17);
+            this.label12.Size = new System.Drawing.Size(15, 16);
             this.label12.TabIndex = 40;
             this.label12.Text = "s";
             // 
@@ -545,7 +547,7 @@ namespace SecondEgSA
             this.label11.ForeColor = System.Drawing.Color.Transparent;
             this.label11.Location = new System.Drawing.Point(411, 738);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 17);
+            this.label11.Size = new System.Drawing.Size(72, 16);
             this.label11.TabIndex = 39;
             this.label11.Text = "start after";
             // 
@@ -557,7 +559,7 @@ namespace SecondEgSA
             this.label10.ForeColor = System.Drawing.Color.Transparent;
             this.label10.Location = new System.Drawing.Point(411, 546);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 17);
+            this.label10.Size = new System.Drawing.Size(46, 16);
             this.label10.TabIndex = 38;
             this.label10.Text = "delay";
             // 
@@ -569,7 +571,7 @@ namespace SecondEgSA
             this.label7.ForeColor = System.Drawing.Color.Transparent;
             this.label7.Location = new System.Drawing.Point(411, 511);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 17);
+            this.label7.Size = new System.Drawing.Size(52, 16);
             this.label7.TabIndex = 37;
             this.label7.Text = "repeat";
             // 
@@ -587,7 +589,7 @@ namespace SecondEgSA
             this.guna2TextBox5.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox5.Location = new System.Drawing.Point(523, 732);
-            this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox5.Margin = new System.Windows.Forms.Padding(4);
             this.guna2TextBox5.Name = "guna2TextBox5";
             this.guna2TextBox5.PasswordChar = '\0';
             this.guna2TextBox5.PlaceholderText = "";
@@ -603,7 +605,7 @@ namespace SecondEgSA
             this.label6.ForeColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(411, 420);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 17);
+            this.label6.Size = new System.Drawing.Size(97, 16);
             this.label6.TabIndex = 35;
             this.label6.Text = "select param";
             // 
@@ -615,7 +617,7 @@ namespace SecondEgSA
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(411, 356);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 17);
+            this.label1.Size = new System.Drawing.Size(79, 16);
             this.label1.TabIndex = 34;
             this.label1.Text = "text param";
             // 
@@ -627,7 +629,7 @@ namespace SecondEgSA
             this.label9.ForeColor = System.Drawing.Color.Transparent;
             this.label9.Location = new System.Drawing.Point(41, 175);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 17);
+            this.label9.Size = new System.Drawing.Size(54, 16);
             this.label9.TabIndex = 33;
             this.label9.Text = "search";
             // 
@@ -639,7 +641,7 @@ namespace SecondEgSA
             this.label8.ForeColor = System.Drawing.Color.Transparent;
             this.label8.Location = new System.Drawing.Point(411, 176);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 17);
+            this.label8.Size = new System.Drawing.Size(85, 16);
             this.label8.TabIndex = 32;
             this.label8.Text = "sub system";
             // 
@@ -650,7 +652,7 @@ namespace SecondEgSA
             this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
             this.guna2PictureBox2.ImageRotate = 0F;
             this.guna2PictureBox2.Location = new System.Drawing.Point(-17, -57);
-            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.Size = new System.Drawing.Size(731, 229);
             this.guna2PictureBox2.TabIndex = 48;
@@ -686,7 +688,7 @@ namespace SecondEgSA
             this.label25.Location = new System.Drawing.Point(424, 119);
             this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(51, 17);
+            this.label25.Size = new System.Drawing.Size(49, 16);
             this.label25.TabIndex = 20;
             this.label25.Text = "active";
             // 
@@ -698,7 +700,7 @@ namespace SecondEgSA
             this.label24.Location = new System.Drawing.Point(424, 89);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(69, 17);
+            this.label24.Size = new System.Drawing.Size(64, 16);
             this.label24.TabIndex = 19;
             this.label24.Text = "suez sat";
             // 
@@ -710,7 +712,7 @@ namespace SecondEgSA
             this.label23.Location = new System.Drawing.Point(424, 58);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(53, 17);
+            this.label23.Size = new System.Drawing.Size(47, 16);
             this.label23.TabIndex = 18;
             this.label23.Text = "11783";
             // 
@@ -722,7 +724,7 @@ namespace SecondEgSA
             this.label22.Location = new System.Drawing.Point(316, 89);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(94, 17);
+            this.label22.Size = new System.Drawing.Size(90, 16);
             this.label22.TabIndex = 17;
             this.label22.Text = "SAT Name :";
             // 
@@ -734,7 +736,7 @@ namespace SecondEgSA
             this.label21.Location = new System.Drawing.Point(311, 119);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(99, 17);
+            this.label21.Size = new System.Drawing.Size(92, 16);
             this.label21.TabIndex = 16;
             this.label21.Text = "SAT Status :";
             // 
@@ -746,7 +748,7 @@ namespace SecondEgSA
             this.label20.Location = new System.Drawing.Point(341, 58);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(68, 17);
+            this.label20.Size = new System.Drawing.Size(64, 16);
             this.label20.TabIndex = 15;
             this.label20.Text = "SAT ID :";
             // 
@@ -762,31 +764,6 @@ namespace SecondEgSA
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(805, 666);
             this.guna2ShadowPanel1.TabIndex = 0;
             // 
-            // guna2PictureBox3
-            // 
-            this.guna2PictureBox3.BorderRadius = 20;
-            this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
-            this.guna2PictureBox3.ImageRotate = 0F;
-            this.guna2PictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.InitialImage")));
-            this.guna2PictureBox3.Location = new System.Drawing.Point(641, -9);
-            this.guna2PictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.Size = new System.Drawing.Size(180, 166);
-            this.guna2PictureBox3.TabIndex = 13;
-            this.guna2PictureBox3.TabStop = false;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
-            this.guna2PictureBox1.Location = new System.Drawing.Point(-16, 2);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(280, 185);
-            this.guna2PictureBox1.TabIndex = 14;
-            this.guna2PictureBox1.TabStop = false;
-            // 
             // guna2DataGridView1
             // 
             this.guna2DataGridView1.AllowUserToAddRows = false;
@@ -801,7 +778,8 @@ namespace SecondEgSA
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.guna2DataGridView1.ColumnHeadersHeight = 36;
+            this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
@@ -839,7 +817,7 @@ namespace SecondEgSA
             this.guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 36;
             this.guna2DataGridView1.ThemeStyle.ReadOnly = true;
             this.guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
@@ -907,6 +885,31 @@ namespace SecondEgSA
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
+            // guna2PictureBox3
+            // 
+            this.guna2PictureBox3.BorderRadius = 20;
+            this.guna2PictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.Image")));
+            this.guna2PictureBox3.ImageRotate = 0F;
+            this.guna2PictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox3.InitialImage")));
+            this.guna2PictureBox3.Location = new System.Drawing.Point(641, -9);
+            this.guna2PictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.Size = new System.Drawing.Size(180, 166);
+            this.guna2PictureBox3.TabIndex = 13;
+            this.guna2PictureBox3.TabStop = false;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.InitialImage")));
+            this.guna2PictureBox1.Location = new System.Drawing.Point(-16, 2);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(280, 185);
+            this.guna2PictureBox1.TabIndex = 14;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -916,7 +919,7 @@ namespace SecondEgSA
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1594, 889);
             this.MinimizeBox = false;
@@ -931,9 +934,9 @@ namespace SecondEgSA
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.guna2ShadowPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

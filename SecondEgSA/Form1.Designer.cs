@@ -151,6 +151,7 @@ namespace SecondEgSA
             this.guna2PictureBox1.Size = new System.Drawing.Size(280, 185);
             this.guna2PictureBox1.TabIndex = 10;
             this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // guna2PictureBox2
             // 

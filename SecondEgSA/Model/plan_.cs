@@ -26,7 +26,7 @@ namespace SecondEgSA.Model
 
         public int? com_ID { get; set; }
 
-        public DateTime? EX_time { get; set; }
+        public string EX_time { get; set; }
 
         public int? sub_ID { get; set; }
 

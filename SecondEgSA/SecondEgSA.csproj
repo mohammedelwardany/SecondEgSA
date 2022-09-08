@@ -65,11 +65,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="C:\Users\m2010\Desktop\New folder\Form2.cs">
       <SubType>Form</SubType>
+      <Link>Form2.cs</Link>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
+    <Compile Include="C:\Users\m2010\Desktop\New folder\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
+      <Link>Form2.Designer.cs</Link>
     </Compile>
     <Compile Include="Form3.cs">
       <SubType>Form</SubType>
@@ -94,6 +96,7 @@
     <Compile Include="Model\Command.cs" />
     <Compile Include="Model\CoM_Param.cs" />
     <Compile Include="Model\EgSa.cs" />
+    <Compile Include="Model\packet_class.cs" />
     <Compile Include="Model\param_TB_type.cs" />
     <Compile Include="Model\Param_Value.cs" />
     <Compile Include="Model\plan_.cs" />
@@ -110,8 +113,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
+    <EmbeddedResource Include="C:\Users\m2010\Desktop\New folder\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+      <Link>Form2.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
