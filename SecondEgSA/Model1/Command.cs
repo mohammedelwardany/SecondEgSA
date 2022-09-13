@@ -1,4 +1,4 @@
-namespace SecondEgSA.Model
+namespace SecondEgSA.Model1
 {
     using System;
     using System.Collections.Generic;
@@ -6,36 +6,36 @@ namespace SecondEgSA.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class CoM_Param
+    [Table("Command")]
+    public partial class Command
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CoM_Param()
+        public Command()
         {
-            Param_Value = new HashSet<Param_Value>();
+            CoM_Param = new HashSet<CoM_Param>();
+            plan_ = new HashSet<plan_>();
         }
 
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int param_ID { get; set; }
+        public int com_id { get; set; }
+
+        [StringLength(40)]
+        public string com_description { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int com_id { get; set; }
+        public int sub_ID { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int sub_Id { get; set; }
-
-        public int? param_type { get; set; }
-
-        public virtual Command Command { get; set; }
-
-        public virtual param_TB_type param_TB_type { get; set; }
+        [StringLength(100)]
+        public string sensor_name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Param_Value> Param_Value { get; set; }
+        public virtual ICollection<CoM_Param> CoM_Param { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<plan_> plan_ { get; set; }
     }
 }

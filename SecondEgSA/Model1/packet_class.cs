@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SecondEgSA.Model
+namespace SecondEgSA.Model1
 {
     public static class packet_class
     {

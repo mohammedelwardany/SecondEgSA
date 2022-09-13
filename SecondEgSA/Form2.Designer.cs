@@ -29,7 +29,7 @@ namespace SecondEgSA
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,6 +39,7 @@ namespace SecondEgSA
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -47,35 +48,6 @@ namespace SecondEgSA
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2ShadowPanel11 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.guna2ImageRadioButton2 = new Guna.UI2.WinForms.Guna2ImageRadioButton();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.guna2ShadowPanel13 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.guna2ImageRadioButton4 = new Guna.UI2.WinForms.Guna2ImageRadioButton();
-            this.guna2ProgressBar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
-            this.guna2ShadowPanel12 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.guna2ImageRadioButton3 = new Guna.UI2.WinForms.Guna2ImageRadioButton();
-            this.guna2ShadowPanel14 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.guna2ImageRadioButton5 = new Guna.UI2.WinForms.Guna2ImageRadioButton();
-            this.guna2ShadowPanel15 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.guna2ImageRadioButton6 = new Guna.UI2.WinForms.Guna2ImageRadioButton();
-            this.guna2ShadowPanel10 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.guna2ImageRadioButton1 = new Guna.UI2.WinForms.Guna2ImageRadioButton();
             this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -84,12 +56,14 @@ namespace SecondEgSA
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time_Gro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2DataGridView4 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2DataGridView2 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time_ACE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -102,10 +76,12 @@ namespace SecondEgSA
             this.guna2ShadowPanel4 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2DataGridView5 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time_ult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2ShadowPanel5 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Time_DHT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label17 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -117,14 +93,13 @@ namespace SecondEgSA
             this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.guna2ShadowPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
-            this.guna2ShadowPanel11.SuspendLayout();
-            this.guna2ShadowPanel13.SuspendLayout();
-            this.guna2ShadowPanel12.SuspendLayout();
-            this.guna2ShadowPanel14.SuspendLayout();
-            this.guna2ShadowPanel15.SuspendLayout();
-            this.guna2ShadowPanel10.SuspendLayout();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.guna2ProgressBar1 = new Guna.UI2.WinForms.Guna2ProgressBar();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.guna2ShadowPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView4)).BeginInit();
@@ -137,6 +112,8 @@ namespace SecondEgSA
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2ShadowPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -171,352 +148,6 @@ namespace SecondEgSA
             this.guna2Button1.TabIndex = 11;
             this.guna2Button1.Text = "START";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
-            // 
-            // guna2ShadowPanel1
-            // 
-            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel1.Controls.Add(this.guna2PictureBox2);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2ShadowPanel11);
-            this.guna2ShadowPanel1.Controls.Add(this.label16);
-            this.guna2ShadowPanel1.Controls.Add(this.label14);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2ShadowPanel13);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2ProgressBar1);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2ShadowPanel12);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2ShadowPanel14);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2ShadowPanel15);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2ShadowPanel10);
-            this.guna2ShadowPanel1.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel1.Location = new System.Drawing.Point(22, 177);
-            this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
-            this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(629, 387);
-            this.guna2ShadowPanel1.TabIndex = 12;
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
-            this.guna2PictureBox2.ImageRotate = 0F;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(229, 16);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.guna2PictureBox2.TabIndex = 30;
-            this.guna2PictureBox2.TabStop = false;
-            // 
-            // guna2ShadowPanel11
-            // 
-            this.guna2ShadowPanel11.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel11.Controls.Add(this.label4);
-            this.guna2ShadowPanel11.Controls.Add(this.label5);
-            this.guna2ShadowPanel11.Controls.Add(this.guna2ImageRadioButton2);
-            this.guna2ShadowPanel11.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel11.Location = new System.Drawing.Point(31, 103);
-            this.guna2ShadowPanel11.Name = "guna2ShadowPanel11";
-            this.guna2ShadowPanel11.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2ShadowPanel11.Radius = 10;
-            this.guna2ShadowPanel11.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.guna2ShadowPanel11.Size = new System.Drawing.Size(568, 51);
-            this.guna2ShadowPanel11.TabIndex = 5;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(471, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 20);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "10:00";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.label5.Location = new System.Drawing.Point(66, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(297, 20);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "commend1 welcome welcome welcome";
-            // 
-            // guna2ImageRadioButton2
-            // 
-            this.guna2ImageRadioButton2.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.guna2ImageRadioButton2.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageRadioButton2.Image")));
-            this.guna2ImageRadioButton2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageRadioButton2.ImageRotate = 0F;
-            this.guna2ImageRadioButton2.Location = new System.Drawing.Point(25, 13);
-            this.guna2ImageRadioButton2.Name = "guna2ImageRadioButton2";
-            this.guna2ImageRadioButton2.Size = new System.Drawing.Size(24, 24);
-            this.guna2ImageRadioButton2.TabIndex = 2;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(502, 16);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(90, 20);
-            this.label16.TabIndex = 5;
-            this.label16.Text = "21-7-2022";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.label14.Location = new System.Drawing.Point(41, 15);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(171, 20);
-            this.label14.TabIndex = 28;
-            this.label14.Text = "PLAN EXECUTION";
-            // 
-            // guna2ShadowPanel13
-            // 
-            this.guna2ShadowPanel13.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel13.Controls.Add(this.label8);
-            this.guna2ShadowPanel13.Controls.Add(this.label9);
-            this.guna2ShadowPanel13.Controls.Add(this.guna2ImageRadioButton4);
-            this.guna2ShadowPanel13.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel13.Location = new System.Drawing.Point(31, 328);
-            this.guna2ShadowPanel13.Name = "guna2ShadowPanel13";
-            this.guna2ShadowPanel13.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2ShadowPanel13.Radius = 10;
-            this.guna2ShadowPanel13.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.guna2ShadowPanel13.Size = new System.Drawing.Size(568, 51);
-            this.guna2ShadowPanel13.TabIndex = 9;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(471, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 20);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "10:00";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.label9.Location = new System.Drawing.Point(66, 14);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(297, 20);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "commend1 welcome welcome welcome";
-            // 
-            // guna2ImageRadioButton4
-            // 
-            this.guna2ImageRadioButton4.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.guna2ImageRadioButton4.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageRadioButton4.Image")));
-            this.guna2ImageRadioButton4.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageRadioButton4.ImageRotate = 0F;
-            this.guna2ImageRadioButton4.Location = new System.Drawing.Point(25, 13);
-            this.guna2ImageRadioButton4.Name = "guna2ImageRadioButton4";
-            this.guna2ImageRadioButton4.Size = new System.Drawing.Size(24, 24);
-            this.guna2ImageRadioButton4.TabIndex = 2;
-            // 
-            // guna2ProgressBar1
-            // 
-            this.guna2ProgressBar1.Location = new System.Drawing.Point(263, 19);
-            this.guna2ProgressBar1.Name = "guna2ProgressBar1";
-            this.guna2ProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.guna2ProgressBar1.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.guna2ProgressBar1.Size = new System.Drawing.Size(232, 10);
-            this.guna2ProgressBar1.TabIndex = 53;
-            this.guna2ProgressBar1.Text = "guna2ProgressBar1";
-            this.guna2ProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ProgressBar1.Value = 20;
-            // 
-            // guna2ShadowPanel12
-            // 
-            this.guna2ShadowPanel12.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel12.Controls.Add(this.label6);
-            this.guna2ShadowPanel12.Controls.Add(this.label7);
-            this.guna2ShadowPanel12.Controls.Add(this.guna2ImageRadioButton3);
-            this.guna2ShadowPanel12.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel12.Location = new System.Drawing.Point(31, 160);
-            this.guna2ShadowPanel12.Name = "guna2ShadowPanel12";
-            this.guna2ShadowPanel12.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2ShadowPanel12.Radius = 10;
-            this.guna2ShadowPanel12.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.guna2ShadowPanel12.Size = new System.Drawing.Size(568, 51);
-            this.guna2ShadowPanel12.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(471, 15);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 20);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "10:00";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.label7.Location = new System.Drawing.Point(66, 14);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(297, 20);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "commend1 welcome welcome welcome";
-            // 
-            // guna2ImageRadioButton3
-            // 
-            this.guna2ImageRadioButton3.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            this.guna2ImageRadioButton3.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageRadioButton3.Image")));
-            this.guna2ImageRadioButton3.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageRadioButton3.ImageRotate = 0F;
-            this.guna2ImageRadioButton3.Location = new System.Drawing.Point(25, 13);
-            this.guna2ImageRadioButton3.Name = "guna2ImageRadioButton3";
-            this.guna2ImageRadioButton3.Size = new System.Drawing.Size(24, 24);
-            this.guna2ImageRadioButton3.TabIndex = 2;
-            // 
-            // guna2ShadowPanel14
-            // 
-            this.guna2ShadowPanel14.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel14.Controls.Add(this.label10);
-            this.guna2ShadowPanel14.Controls.Add(this.label11);
-            this.guna2ShadowPanel14.Controls.Add(this.guna2ImageRadioButton5);
-            this.guna2ShadowPanel14.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel14.Location = new System.Drawing.Point(31, 272);
-            this.guna2ShadowPanel14.Name = "guna2ShadowPanel14";
-            this.guna2ShadowPanel14.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2ShadowPanel14.Radius = 10;
-            this.guna2ShadowPanel14.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.guna2ShadowPanel14.Size = new System.Drawing.Size(568, 51);
-            this.guna2ShadowPanel14.TabIndex = 8;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(471, 15);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(54, 20);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "10:00";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.label11.Location = new System.Drawing.Point(66, 14);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(297, 20);
-            this.label11.TabIndex = 3;
-            this.label11.Text = "commend1 welcome welcome welcome";
-            // 
-            // guna2ImageRadioButton5
-            // 
-            this.guna2ImageRadioButton5.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-            this.guna2ImageRadioButton5.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageRadioButton5.Image")));
-            this.guna2ImageRadioButton5.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageRadioButton5.ImageRotate = 0F;
-            this.guna2ImageRadioButton5.Location = new System.Drawing.Point(25, 13);
-            this.guna2ImageRadioButton5.Name = "guna2ImageRadioButton5";
-            this.guna2ImageRadioButton5.Size = new System.Drawing.Size(24, 24);
-            this.guna2ImageRadioButton5.TabIndex = 2;
-            // 
-            // guna2ShadowPanel15
-            // 
-            this.guna2ShadowPanel15.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel15.Controls.Add(this.label12);
-            this.guna2ShadowPanel15.Controls.Add(this.label13);
-            this.guna2ShadowPanel15.Controls.Add(this.guna2ImageRadioButton6);
-            this.guna2ShadowPanel15.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel15.Location = new System.Drawing.Point(31, 216);
-            this.guna2ShadowPanel15.Name = "guna2ShadowPanel15";
-            this.guna2ShadowPanel15.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2ShadowPanel15.Radius = 10;
-            this.guna2ShadowPanel15.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.guna2ShadowPanel15.Size = new System.Drawing.Size(568, 51);
-            this.guna2ShadowPanel15.TabIndex = 7;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(471, 15);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 20);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "10:00";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.label13.Location = new System.Drawing.Point(66, 14);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(297, 20);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "commend1 welcome welcome welcome";
-            // 
-            // guna2ImageRadioButton6
-            // 
-            this.guna2ImageRadioButton6.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-            this.guna2ImageRadioButton6.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageRadioButton6.Image")));
-            this.guna2ImageRadioButton6.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageRadioButton6.ImageRotate = 0F;
-            this.guna2ImageRadioButton6.Location = new System.Drawing.Point(25, 13);
-            this.guna2ImageRadioButton6.Name = "guna2ImageRadioButton6";
-            this.guna2ImageRadioButton6.Size = new System.Drawing.Size(24, 24);
-            this.guna2ImageRadioButton6.TabIndex = 2;
-            // 
-            // guna2ShadowPanel10
-            // 
-            this.guna2ShadowPanel10.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel10.Controls.Add(this.label3);
-            this.guna2ShadowPanel10.Controls.Add(this.label2);
-            this.guna2ShadowPanel10.Controls.Add(this.guna2ImageRadioButton1);
-            this.guna2ShadowPanel10.FillColor = System.Drawing.Color.White;
-            this.guna2ShadowPanel10.Location = new System.Drawing.Point(31, 47);
-            this.guna2ShadowPanel10.Name = "guna2ShadowPanel10";
-            this.guna2ShadowPanel10.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2ShadowPanel10.Radius = 10;
-            this.guna2ShadowPanel10.ShadowColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.guna2ShadowPanel10.Size = new System.Drawing.Size(568, 51);
-            this.guna2ShadowPanel10.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(471, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "10:00";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.label2.Location = new System.Drawing.Point(66, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(297, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "commend1 welcome welcome welcome";
-            // 
-            // guna2ImageRadioButton1
-            // 
-            this.guna2ImageRadioButton1.CheckedState.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-            this.guna2ImageRadioButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2ImageRadioButton1.Image")));
-            this.guna2ImageRadioButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageRadioButton1.ImageRotate = 0F;
-            this.guna2ImageRadioButton1.Location = new System.Drawing.Point(25, 13);
-            this.guna2ImageRadioButton1.Name = "guna2ImageRadioButton1";
-            this.guna2ImageRadioButton1.Size = new System.Drawing.Size(24, 24);
-            this.guna2ImageRadioButton1.TabIndex = 2;
             // 
             // guna2ShadowPanel3
             // 
@@ -598,7 +229,8 @@ namespace SecondEgSA
             this.guna2DataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
+            this.dataGridViewTextBoxColumn6,
+            this.Time_Gro});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -659,6 +291,13 @@ namespace SecondEgSA
             this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // Time_Gro
+            // 
+            this.Time_Gro.HeaderText = "Time";
+            this.Time_Gro.MinimumWidth = 6;
+            this.Time_Gro.Name = "Time_Gro";
+            this.Time_Gro.ReadOnly = true;
             // 
             // guna2DataGridView4
             // 
@@ -756,7 +395,8 @@ namespace SecondEgSA
             this.guna2DataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.dataGridViewTextBoxColumn3,
+            this.Time_ACE});
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -823,6 +463,13 @@ namespace SecondEgSA
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Time_ACE
+            // 
+            this.Time_ACE.HeaderText = "Time";
+            this.Time_ACE.MinimumWidth = 6;
+            this.Time_ACE.Name = "Time_ACE";
+            this.Time_ACE.ReadOnly = true;
             // 
             // guna2PictureBox3
             // 
@@ -975,7 +622,8 @@ namespace SecondEgSA
             this.guna2DataGridView5.ColumnHeadersHeight = 20;
             this.guna2DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn10});
+            this.dataGridViewTextBoxColumn10,
+            this.Time_ult});
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
             dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1023,6 +671,13 @@ namespace SecondEgSA
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
             // 
+            // Time_ult
+            // 
+            this.Time_ult.HeaderText = "Time";
+            this.Time_ult.MinimumWidth = 6;
+            this.Time_ult.Name = "Time_ult";
+            this.Time_ult.ReadOnly = true;
+            // 
             // guna2ShadowPanel5
             // 
             this.guna2ShadowPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
@@ -1058,7 +713,8 @@ namespace SecondEgSA
             this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
+            this.dataGridViewTextBoxColumn9,
+            this.Time_DHT});
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
             dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1108,10 +764,17 @@ namespace SecondEgSA
             // 
             // dataGridViewTextBoxColumn9
             // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "RTOPA";
+            this.dataGridViewTextBoxColumn9.HeaderText = "HUM";
             this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // Time_DHT
+            // 
+            this.Time_DHT.HeaderText = "Time";
+            this.Time_DHT.MinimumWidth = 6;
+            this.Time_DHT.Name = "Time_DHT";
+            this.Time_DHT.ReadOnly = true;
             // 
             // label17
             // 
@@ -1265,6 +928,80 @@ namespace SecondEgSA
             this.label29.TabIndex = 88;
             this.label29.Text = "Sensor name : ULTRASONIC";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // guna2ProgressBar1
+            // 
+            this.guna2ProgressBar1.Location = new System.Drawing.Point(263, 19);
+            this.guna2ProgressBar1.Name = "guna2ProgressBar1";
+            this.guna2ProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
+            this.guna2ProgressBar1.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
+            this.guna2ProgressBar1.Size = new System.Drawing.Size(232, 10);
+            this.guna2ProgressBar1.TabIndex = 53;
+            this.guna2ProgressBar1.Text = "guna2ProgressBar1";
+            this.guna2ProgressBar1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.guna2ProgressBar1.ValueChanged += new System.EventHandler(this.guna2ProgressBar1_ValueChanged);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
+            this.label14.Location = new System.Drawing.Point(41, 15);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(171, 20);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "PLAN EXECUTION";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Consolas", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(502, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(90, 20);
+            this.label16.TabIndex = 5;
+            this.label16.Text = "21-7-2022";
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox2.Image")));
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(229, 16);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.guna2PictureBox2.TabIndex = 30;
+            this.guna2PictureBox2.TabStop = false;
+            // 
+            // guna2ShadowPanel1
+            // 
+            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.listView1);
+            this.guna2ShadowPanel1.Controls.Add(this.guna2PictureBox2);
+            this.guna2ShadowPanel1.Controls.Add(this.label16);
+            this.guna2ShadowPanel1.Controls.Add(this.label14);
+            this.guna2ShadowPanel1.Controls.Add(this.guna2ProgressBar1);
+            this.guna2ShadowPanel1.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel1.Location = new System.Drawing.Point(22, 177);
+            this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
+            this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(629, 387);
+            this.guna2ShadowPanel1.TabIndex = 12;
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(3, 47);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(623, 337);
+            this.listView1.TabIndex = 54;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1301,21 +1038,6 @@ namespace SecondEgSA
             this.Name = "Form2";
             this.Text = "EXCUTED";
             this.Load += new System.EventHandler(this.Form2_Load);
-            this.guna2ShadowPanel1.ResumeLayout(false);
-            this.guna2ShadowPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
-            this.guna2ShadowPanel11.ResumeLayout(false);
-            this.guna2ShadowPanel11.PerformLayout();
-            this.guna2ShadowPanel13.ResumeLayout(false);
-            this.guna2ShadowPanel13.PerformLayout();
-            this.guna2ShadowPanel12.ResumeLayout(false);
-            this.guna2ShadowPanel12.PerformLayout();
-            this.guna2ShadowPanel14.ResumeLayout(false);
-            this.guna2ShadowPanel14.PerformLayout();
-            this.guna2ShadowPanel15.ResumeLayout(false);
-            this.guna2ShadowPanel15.PerformLayout();
-            this.guna2ShadowPanel10.ResumeLayout(false);
-            this.guna2ShadowPanel10.PerformLayout();
             this.guna2ShadowPanel3.ResumeLayout(false);
             this.guna2ShadowPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView3)).EndInit();
@@ -1330,6 +1052,9 @@ namespace SecondEgSA
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2ShadowPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            this.guna2ShadowPanel1.ResumeLayout(false);
+            this.guna2ShadowPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1338,28 +1063,7 @@ namespace SecondEgSA
         #endregion
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel3;
-        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel10;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2ImageRadioButton guna2ImageRadioButton1;
-        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel13;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private Guna.UI2.WinForms.Guna2ImageRadioButton guna2ImageRadioButton4;
-        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel12;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private Guna.UI2.WinForms.Guna2ImageRadioButton guna2ImageRadioButton3;
-        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel14;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2ImageRadioButton guna2ImageRadioButton5;
-        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel15;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private Guna.UI2.WinForms.Guna2ImageRadioButton guna2ImageRadioButton6;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.Label label25;
@@ -1368,18 +1072,10 @@ namespace SecondEgSA
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label14;
-        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel11;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private Guna.UI2.WinForms.Guna2ImageRadioButton guna2ImageRadioButton2;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel4;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel5;
         private System.Windows.Forms.Label label17;
-        private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
         private System.Windows.Forms.ListBox listBox1;
@@ -1389,24 +1085,35 @@ namespace SecondEgSA
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label19;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.Label label28;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time_Gro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time_ACE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time_ult;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Time_DHT;
+        private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2ProgressBar guna2ProgressBar1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label16;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
+        private System.Windows.Forms.ListView listView1;
     }
 }

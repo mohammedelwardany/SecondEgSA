@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace SecondEgSA.Model
+namespace SecondEgSA.Model1
 {
-    public partial class EgSa : DbContext
+    public partial class Model1 : DbContext
     {
-        public EgSa()
-            : base("name=EgSa")
+        public Model1()
+            : base("name=Model1")
         {
         }
 
@@ -23,6 +23,7 @@ namespace SecondEgSA.Model
         public virtual DbSet<Satellite> Satellites { get; set; }
         public virtual DbSet<Station> Stations { get; set; }
         public virtual DbSet<Subsystem> Subsystems { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -36,13 +37,13 @@ namespace SecondEgSA.Model
             ////    .HasForeignKey(e => new { e.parm_ID, e.com_id, e.sub_ID })
             ////    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Command>()
-                .Property(e => e.com_description)
-                .IsUnicode(false);
+            //modelBuilder.Entity<Command>()
+            //    .Property(e => e.com_description)
+            //    .IsUnicode(false);
 
-            modelBuilder.Entity<Command>()
-                .Property(e => e.sensor_name)
-                .IsUnicode(false);
+            //modelBuilder.Entity<Command>()
+            //    .Property(e => e.sensor_name)
+            //    .IsUnicode(false);
 
             //modelBuilder.Entity<Command>()
             //    .HasMany(e => e.CoM_Param)
@@ -50,10 +51,10 @@ namespace SecondEgSA.Model
             //    .HasForeignKey(e => new { e.com_id, e.sub_Id })
             //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Command>()
-                .HasMany(e => e.plan_)
-                .WithOptional(e => e.Command)
-                .HasForeignKey(e => new { e.com_ID, e.sub_ID });
+            //modelBuilder.Entity<Command>()
+            //    .HasMany(e => e.plan_)
+            //    .WithOptional(e => e.Command)
+            //    .HasForeignKey(e => new { e.com_ID, e.sub_ID });
 
             ////modelBuilder.Entity<param_TB_type>()
             ////    .Property(e => e.param_type)
@@ -64,13 +65,13 @@ namespace SecondEgSA.Model
             ////    .WithOptional(e => e.param_TB_type)
             ////    .HasForeignKey(e => e.param_type);
 
-            ////modelBuilder.Entity<Param_Value>()
-            ////    .Property(e => e.description)
-            ////    .IsUnicode(false);
-
-            //modelBuilder.Entity<plan_>()
-            //    .Property(e => e.EX_time)
+            //modelBuilder.Entity<Param_Value>()
+            //    .Property(e => e.description)
             //    .IsUnicode(false);
+
+            modelBuilder.Entity<plan_>()
+                .Property(e => e.EX_time)
+                .IsUnicode(false);
 
             modelBuilder.Entity<plan_>()
                 .Property(e => e.para1_desc)
@@ -98,46 +99,46 @@ namespace SecondEgSA.Model
                 .HasForeignKey(e => new { e.sequance_id, e.plan_id })
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<plan_result>()
-                .Property(e => e.value_result)
-                .IsUnicode(false);
+            //modelBuilder.Entity<plan_result>()
+            //    .Property(e => e.value_result)
+            //    .IsUnicode(false);
 
-            modelBuilder.Entity<Satellite>()
-                .Property(e => e.Sat_name)
-                .IsUnicode(false);
+            //modelBuilder.Entity<Satellite>()
+            //    .Property(e => e.Sat_name)
+            //    .IsUnicode(false);
 
-            modelBuilder.Entity<Satellite>()
-                .Property(e => e.Orbit_Type)
-                .IsUnicode(false);
+            //modelBuilder.Entity<Satellite>()
+            //    .Property(e => e.Orbit_Type)
+            //    .IsUnicode(false);
 
-            modelBuilder.Entity<Station>()
-                .Property(e => e.Station_name)
-                .IsUnicode(false);
+            //modelBuilder.Entity<Station>()
+            //    .Property(e => e.Station_name)
+            //    .IsUnicode(false);
 
-            modelBuilder.Entity<Station>()
-                .Property(e => e.Station_Type)
-                .IsUnicode(false);
+            //modelBuilder.Entity<Station>()
+            //    .Property(e => e.Station_Type)
+            //    .IsUnicode(false);
 
-            modelBuilder.Entity<Station>()
-                .Property(e => e.Longitude)
-                .HasPrecision(18, 0);
+            //modelBuilder.Entity<Station>()
+            //    .Property(e => e.Longitude)
+            //    .HasPrecision(18, 0);
 
-            modelBuilder.Entity<Station>()
-                .Property(e => e.Latitude)
-                .HasPrecision(18, 0);
+            //modelBuilder.Entity<Station>()
+            //    .Property(e => e.Latitude)
+            //    .HasPrecision(18, 0);
 
-            modelBuilder.Entity<Station>()
-                .HasMany(e => e.Sat_Station)
-                .WithOptional(e => e.Station)
-                .HasForeignKey(e => e.Station_ID);
+            //modelBuilder.Entity<Station>()
+            //    .HasMany(e => e.Sat_Station)
+            //    .WithOptional(e => e.Station)
+            //    .HasForeignKey(e => e.Station_ID);
 
-            modelBuilder.Entity<Subsystem>()
-                .Property(e => e.Sub_name)
-                .IsUnicode(false);
+            //modelBuilder.Entity<Subsystem>()
+            //    .Property(e => e.Sub_name)
+            //    .IsUnicode(false);
 
-            modelBuilder.Entity<Subsystem>()
-                .Property(e => e.Sub_type)
-                .IsUnicode(false);
+            //modelBuilder.Entity<Subsystem>()
+            //    .Property(e => e.Sub_type)
+            //    .IsUnicode(false);
         }
     }
 }

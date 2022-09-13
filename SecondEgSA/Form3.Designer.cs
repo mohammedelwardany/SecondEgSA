@@ -40,7 +40,6 @@ namespace SecondEgSA
             this.guna2ComboBox3 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -69,6 +68,7 @@ namespace SecondEgSA
             this.label8 = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label26 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -87,7 +87,6 @@ namespace SecondEgSA
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label26 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -225,25 +224,6 @@ namespace SecondEgSA
             this.guna2DateTimePicker1.TabIndex = 15;
             this.guna2DateTimePicker1.Value = new System.DateTime(2022, 8, 31, 10, 41, 47, 575);
             // 
-            // guna2Button4
-            // 
-            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderRadius = 5;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.White;
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2Button4.Location = new System.Drawing.Point(523, 650);
-            this.guna2Button4.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(123, 39);
-            this.guna2Button4.TabIndex = 21;
-            this.guna2Button4.Text = "DELETE";
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
-            // 
             // guna2Button2
             // 
             this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
@@ -258,7 +238,7 @@ namespace SecondEgSA
             this.guna2Button2.Location = new System.Drawing.Point(409, 649);
             this.guna2Button2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(106, 39);
+            this.guna2Button2.Size = new System.Drawing.Size(236, 39);
             this.guna2Button2.TabIndex = 20;
             this.guna2Button2.Text = "Save";
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
@@ -413,7 +393,6 @@ namespace SecondEgSA
             this.guna2Panel1.Controls.Add(this.guna2DateTimePicker1);
             this.guna2Panel1.Controls.Add(this.label2);
             this.guna2Panel1.Controls.Add(this.guna2TextBox1);
-            this.guna2Panel1.Controls.Add(this.guna2Button4);
             this.guna2Panel1.Controls.Add(this.guna2ComboBox3);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox2);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -683,6 +662,18 @@ namespace SecondEgSA
             this.panel1.TabIndex = 33;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
+            this.label26.Location = new System.Drawing.Point(546, 817);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(264, 16);
+            this.label26.TabIndex = 86;
+            this.label26.Text = "T37 All Rights Reserved @copyRight";
+            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -914,18 +905,6 @@ namespace SecondEgSA
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(52)))), ((int)(((byte)(75)))));
-            this.label26.Location = new System.Drawing.Point(546, 817);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(264, 16);
-            this.label26.TabIndex = 86;
-            this.label26.Text = "T37 All Rights Reserved @copyRight";
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -965,7 +944,6 @@ namespace SecondEgSA
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox3;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;

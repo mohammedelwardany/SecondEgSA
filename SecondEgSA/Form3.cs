@@ -5,12 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SecondEgSA.Model;
-
+using SecondEgSA.Model1;
+//using SecondEgSA.Model;
 namespace SecondEgSA
 {
     public partial class Form3 : Form
@@ -44,7 +45,9 @@ namespace SecondEgSA
         #region declare
         public string packet;
         int Suq = 0;
-        EgSa EgSA = new EgSa();
+        string X_time;
+
+        Model1.Model1 EgSA = new Model1.Model1();
         combob combobo1, combobo2;
         ComboBox Cb = new ComboBox();
 
@@ -102,7 +105,7 @@ namespace SecondEgSA
 
             listBox1.Items.Clear();
 
-            if (combobo1.id == 5)
+            if (combobo1.id == 6)
             {
                 var query_all = EgSA.Commands.ToList();
                 foreach (var c in query_all)
@@ -138,8 +141,11 @@ namespace SecondEgSA
                 //z = combobo2.id;
 
 
-                var H = EgSA.Commands.Where(o => o.com_id == combobo2.id).FirstOrDefault(); // select first command when equal com_id  
-                var m = EgSA.CoM_Param.Where(n => n.com_id == H.com_id).ToList();
+                var H = EgSA.Commands.Where(o => o.com_id == combobo2.id).Where(o=>o.sub_ID == combobo1.id).FirstOrDefault(); // select first command when equal com_id  
+                var m = EgSA.CoM_Param.Where(n => n.com_id == H.com_id).Where(o=>o.sub_Id == H.sub_ID).ToList();
+                label5.Hide();
+                label1.Hide();
+                label6.Hide();
                 guna2ComboBox3.Hide();
 
                 guna2TextBox1.Hide();
@@ -151,21 +157,17 @@ namespace SecondEgSA
                     switch (p)
                     {
                         case 1:
+                            label1.Show();
                             guna2TextBox1.Show();
                             break;
 
                         case 2:
-                            var get_devices_Param = EgSA.Param_Value.Select(c => c.description).ToList();
-
-                            foreach (var de in get_devices_Param)
-                            {
-                                guna2ComboBox3.Items.Add(de);
-
-                            }
+                            label6.Show();
                             guna2ComboBox3.Show();
                             break;
 
                         case 3:
+                            label5.Show();
                             guna2DateTimePicker1.Show();
                             break;
 
@@ -173,7 +175,12 @@ namespace SecondEgSA
                             MessageBox.Show("No param");
                             break;
                     }
-
+                    guna2ComboBox3.Items.Clear();
+                    var Devices = EgSA.Param_Value.Where(o=>o.com_id == combobo2.id).Where(o=> o.sub_ID==combobo1.id).Select(o=>o.description).ToList();
+                    foreach(var Device in Devices)
+                    {
+                        guna2ComboBox3.Items.Add(Device);
+                    }
 
 
 
@@ -195,6 +202,16 @@ namespace SecondEgSA
 
             try
             {
+                if(guna2DateTimePicker1.Visible == true)
+                {
+                    X_time = guna2DateTimePicker1.Value.ToString();
+                }
+                else
+                {
+                    X_time = "";
+                }
+
+
                 var H = EgSA.Commands.Where(o => o.com_id == combobo2.id).FirstOrDefault();
 
 
@@ -217,7 +234,7 @@ namespace SecondEgSA
                            (guna2TextBox2.Text == "") ? guna2TextBox2.Text = "1" : guna2TextBox2.Text,
                             (guna2ComboBox3.SelectedItem == null) ? "" : guna2ComboBox3.SelectedItem.ToString(),
                             guna2TextBox1.Text,
-                            guna2DateTimePicker1.Value);
+                            X_time);
 
 
                         get_repeat = Checklength_hex(Convert.ToInt32(guna2TextBox2.Text));
@@ -236,7 +253,7 @@ namespace SecondEgSA
 
 
                         // MessageBox.Show(code + "sd" + "sd" + com_name + sub_name + get_repeat + get_delay + code);
-                        packet_class.packet += (code + "00" + "00" + sub_name + com_name + get_repeat + get_delay + code);
+                        packet_class.packet += (code +  sub_name + com_name + get_repeat + get_delay + code);
                         break;
                     }
                     else
@@ -252,7 +269,7 @@ namespace SecondEgSA
                            (guna2TextBox2.Text == "") ? guna2TextBox2.Text = "1" : guna2TextBox2.Text,
                             (guna2ComboBox3.SelectedItem == null) ? "" : guna2ComboBox3.SelectedItem.ToString(),
                             guna2TextBox1.Text,
-                            guna2DateTimePicker1.Value);
+                            X_time);
                         //if (guna2TextBox2.Text)
                         //{
                         //    guna2TextBox2.Text = "1";
@@ -269,8 +286,8 @@ namespace SecondEgSA
                         sub_name = Checklength_hex(combobo1.id);
 
                         //var anthor_serial_command = H.com_id;
-                        if (combobo2.id <= 15 || combobo1.id <= 15) packet_class.packet += (code + "0000" + "0" + combobo2.id + "0" + combobo1.id + get_repeat + get_delay + code);
-                        else packet_class.packet += (code + "0000" + sub_name + com_name + get_repeat + get_delay + code);
+                        if (combobo2.id <= 15 || combobo1.id <= 15) packet_class.packet += (code +   "0" + combobo1.id + "0" + combobo2.id + get_repeat + get_delay + code);
+                        else packet_class.packet += (code +  sub_name + com_name + get_repeat + get_delay + code);
 
                         break;
                     }
@@ -294,6 +311,7 @@ namespace SecondEgSA
         private void guna2Button2_Click(object sender, EventArgs e)
         {
             var Get_last_planID = EgSA.plan_.AsEnumerable().LastOrDefault().plan_ID;
+            
             int last_ID = Get_last_planID + 1;
             //var Get_Command = 
             //var Get_sub = EgSA.Subsystems.to
@@ -305,7 +323,7 @@ namespace SecondEgSA
             {
                 var Com_id = guna2DataGridView1.Rows[i].Cells["Column3"].Value.ToString();
                 var Sub_name = guna2DataGridView1.Rows[i].Cells["Column2"].Value.ToString();
-                plan_ p = new plan_
+                Model1.plan_  p = new Model1.plan_
                 {
                     com_ID = EgSA.Commands.Where(o => o.com_description == Com_id).FirstOrDefault().com_id,
 
@@ -317,7 +335,7 @@ namespace SecondEgSA
                     plan_ID = last_ID
                 ,
                     delay = guna2DataGridView1.Rows[i].Cells["Column4"].Value.ToString(),
-                    //EX_time = guna2DataGridView1.Rows[i].Cells["Column8"].Value.ToString(),
+                    EX_time = guna2DateTimePicker1.Value.ToString(),
                     repeat = guna2DataGridView1.Rows[i].Cells["Column5"].Value.ToString()
                 };
 
@@ -331,7 +349,7 @@ namespace SecondEgSA
             guna2DateTimePicker1.Hide();
             guna2TextBox1.Hide();
 
-            guna2DataGridView1.Rows.Clear();
+            
             MessageBox.Show(packet_class.packet);
             //myport = new SerialPort();
             //myport.BaudRate = 9600;
@@ -344,6 +362,7 @@ namespace SecondEgSA
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+            guna2DataGridView1.Rows.Clear();
             MessageBox.Show(packet_class.Number_Packets+packet_class.packet);
             Form2 form2 = new Form2();
             form2.Show();
@@ -369,7 +388,12 @@ namespace SecondEgSA
         {
             try
             {
-              
+                label5.Hide();
+                label1.Hide();
+                label6.Hide();
+                guna2ComboBox3.Hide(); // hide combobox
+                guna2TextBox1.Hide(); // hide textBox
+                guna2DateTimePicker1.Hide(); // ......
 
                 var G = EgSA.Commands.ToList(); // select all in table and put in list
 
@@ -411,11 +435,11 @@ namespace SecondEgSA
         Thread loadar;
         private void Form3_Load(object sender, EventArgs e)
         {
-                guna2ComboBox3.Hide(); // hide combobox
-                guna2TextBox1.Hide(); // hide textBox
-                guna2DateTimePicker1.Hide(); // ......
-            loadar = new Thread(new ThreadStart(loader));
-            loadar.Start();
+
+            
+
+
+            loader();
           
             
 

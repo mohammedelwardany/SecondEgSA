@@ -1,4 +1,4 @@
-namespace SecondEgSA.Model
+namespace SecondEgSA.Model1
 {
     using System;
     using System.Collections.Generic;

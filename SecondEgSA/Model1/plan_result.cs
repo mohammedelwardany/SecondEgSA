@@ -1,4 +1,4 @@
-namespace SecondEgSA.Model
+namespace SecondEgSA.Model1
 {
     using System;
     using System.Collections.Generic;
@@ -6,31 +6,31 @@ namespace SecondEgSA.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Param_Value
+    public partial class plan_result
     {
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int sub_ID { get; set; }
+        public int plan_result_id { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int com_id { get; set; }
+        public int sequance_id { get; set; }
 
         [Key]
         [Column(Order = 2)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int parm_ID { get; set; }
+        public int plan_id { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int device { get; set; }
+        public int? sub_id { get; set; }
 
-        [StringLength(60)]
-        public string description { get; set; }
+        public int? command_id { get; set; }
 
-        public virtual CoM_Param CoM_Param { get; set; }
+        public int? time_value { get; set; }
+
+        public string value_result { get; set; }
+
+        public virtual plan_ plan_ { get; set; }
     }
 }

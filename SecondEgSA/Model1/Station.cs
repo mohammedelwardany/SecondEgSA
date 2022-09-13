@@ -1,4 +1,4 @@
-namespace SecondEgSA.Model
+namespace SecondEgSA.Model1
 {
     using System;
     using System.Collections.Generic;
@@ -6,40 +6,34 @@ namespace SecondEgSA.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Satellite")]
-    public partial class Satellite
+    [Table("Station")]
+    public partial class Station
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Satellite()
+        public Station()
         {
             Sat_Station = new HashSet<Sat_Station>();
-            Subsystems = new HashSet<Subsystem>();
+            Satellites = new HashSet<Satellite>();
         }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Sat_ID { get; set; }
-
-        public int? Nat_ID { get; set; }
+        public int Nat_ID { get; set; }
 
         [StringLength(30)]
-        public string Sat_name { get; set; }
+        public string Station_name { get; set; }
 
-        public DateTime? Launch_date { get; set; }
+        [StringLength(30)]
+        public string Station_Type { get; set; }
 
-        public int? Mass { get; set; }
+        public decimal? Longitude { get; set; }
 
-        public short? Sat_type { get; set; }
-
-        [StringLength(10)]
-        public string Orbit_Type { get; set; }
+        public decimal? Latitude { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sat_Station> Sat_Station { get; set; }
 
-        public virtual Station Station { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Subsystem> Subsystems { get; set; }
+        public virtual ICollection<Satellite> Satellites { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-namespace SecondEgSA.Model
+namespace SecondEgSA.Model1
 {
     using System;
     using System.Collections.Generic;
@@ -6,25 +6,22 @@ namespace SecondEgSA.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("ACK")]
-    public partial class ACK
+    public partial class param_TB_type
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ACK()
+        public param_TB_type()
         {
-            plan_ = new HashSet<plan_>();
+            CoM_Param = new HashSet<CoM_Param>();
         }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ack_id { get; set; }
+        public int param_ID { get; set; }
 
-        public int? ack_num { get; set; }
-
-        [StringLength(5)]
-        public string ack_dec { get; set; }
+        [StringLength(60)]
+        public string param_type { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<plan_> plan_ { get; set; }
+        public virtual ICollection<CoM_Param> CoM_Param { get; set; }
     }
 }

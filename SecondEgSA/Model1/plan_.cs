@@ -1,4 +1,4 @@
-namespace SecondEgSA.Model
+namespace SecondEgSA.Model1
 {
     using System;
     using System.Collections.Generic;
@@ -47,7 +47,6 @@ namespace SecondEgSA.Model
         public virtual ACK ACK { get; set; }
 
         public virtual Command Command { get; set; }
-        // public int repeat { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<plan_result> plan_result { get; set; }

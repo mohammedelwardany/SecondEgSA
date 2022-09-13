@@ -1,4 +1,4 @@
-﻿using SecondEgSA.Model;
+﻿using SecondEgSA.Model1;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SecondEgSA.Model;
+using SecondEgSA.Model1;
 using System.Threading;
 
 namespace SecondEgSA
@@ -20,7 +20,7 @@ namespace SecondEgSA
             InitializeComponent();
         }
         #region delcare
-        EgSa EgSa = new EgSa();
+        Model1.Model1 EgSa = new Model1.Model1();
         #endregion
 
         private void guna2PictureBox3_Click(object sender, EventArgs e)
@@ -46,16 +46,45 @@ namespace SecondEgSA
             var result = EgSa.plan_result.Where(o => o.plan_id == planID).ToList();
             foreach (var item in result)
             {
-                switch (item.sub_id)
-                {
-                    case 0:
-                            guna2DataGridView4.Rows.Add(item.value_result, item.time_value);
-                        break;
-                    case 1:
-                        
-                        break;
+                    switch (item.sub_id)
+                    {
+                        case 0:
+                            switch (item.command_id)
+                            {
+                                case 0:
+                                    guna2DataGridView1.Rows.Add(item.value_result, "", TimeSpan.FromSeconds((int)item.time_value));
+                                    break;
+                                case 1:
+                                    guna2DataGridView1.Rows.Add("", item.value_result, TimeSpan.FromSeconds((int)item.time_value));
+                                    break;
+
+                            }
+                            break;
+                        case 1:
+                            switch (item.command_id)
+                            {
+                                case 0:
+                                    guna2DataGridView2.Rows.Add( TimeSpan.FromSeconds((int)item.time_value));
+                                    break;
+                                case 1:
+                                    guna2DataGridView3.Rows.Add( TimeSpan.FromSeconds((int)item.time_value));
+                                    break;
+                                case 2:
+                                    guna2DataGridView4.Rows.Add( TimeSpan.FromSeconds((int)item.time_value));
+                                    break;
+                            }
+                            break;
+                        case 2:
+                            switch (item.command_id)
+                            {
+                                case 0:
+                                    guna2DataGridView5.Rows.Add(item.value_result, TimeSpan.FromSeconds((int)item.time_value));
+                                    break;
+
+                            }
+                            break;
+                    }
                 }
-            }
             });
             d.Abort();
 
