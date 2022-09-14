@@ -182,9 +182,9 @@ namespace SecondEgSA
                 //myport.ReadTimeout = 500000;
                 myport.Open();
 
-                // myport.WriteLine(packet_class.Number_Packets+"GZ02000502GZ");
+                myport.WriteLine(packet_class.Number_Packets + packet_class.packet);
                 //myport.WriteLine("GZ01020502GZGZ01000502GZ");
-                myport.WriteLine(packet_class.packet);
+                //myport.WriteLine(packet_class.packet);
                 while (a != "gz0100gz\r")
                 {
 
@@ -496,7 +496,7 @@ namespace SecondEgSA
 
             //var last_Plan_id = EgSa.plan_.AsEnumerable().LastOrDefault().plan_ID;
             //var time_value_result = EgSa.plan_result.AsEnumerable().Where(o => o.plan_id == last_Plan_id).LastOrDefault().time_value;
-            //time_value_result = counut;
+            //counut = (int)time_value_result;
             #endregion
         }
 

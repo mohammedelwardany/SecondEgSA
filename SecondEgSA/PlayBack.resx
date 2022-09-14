@@ -4981,6 +4981,35 @@
   <metadata name="Time_Ultra.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="stop.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
+        IgAALiIBquLdkgAAAORJREFUSEvV1jsKwkAUheGA4A4s7e3dgL2bsHQJ4kJcgPvQ1sI92FvYWNnIeEYY
+        uIY/cSLJHTzwNYfMXAh5TBVCKAJLD1h6wNIDlsZKRrWuF1gaTznKzHS9wNK4ScxdNjIWuq4zLI00OOUs
+        C6FrO8HSqA9O2clEaE0WLI2mwTEXWQqt+wpLo21wyl6mQusbYWnkDI65ylpoD4SlkTs45SBzob0+YGl0
+        HRzzkK20vnpYGr8MTjkJ7fmGpfFXg4vcaveHq8jr5P4BKfLJdP9JuP8W3Q8CxY4+xQ57g8HSA5YesBxe
+        qF6/oTPioUQUegAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="puse.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
+        IgAALiIBquLdkgAAAIpJREFUSEvt1rEJw0AQRFGVqEbcgxKDC3CuDpS7EFeg2B0YTnMXjeCnHoHZg5d8
+        Bja9qbV2CYwJGBMwJmBMwJiA0ezi7yW06x7i7yu0GzCat/jbhHbdIv4+QrsBo6nDddjV4Tp8gtHU4Trs
+        /uPwZR+Bu6zmJrTrZvHtU2g3YEzAmIAxAWMCxt9r0wFznyh+0rB6tQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="Start.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
+        IgAALiIBquLdkgAAAIpJREFUSEvt1rEJw0AQRFGVqEbcgxKDC3CuDpS7EFeg2B0YTnMXjeCnHoHZg5d8
+        Bja9qbV2CYwJGBMwJmBMwJiA0ezi7yW06x7i7yu0GzCat/jbhHbdIv4+QrsBo6nDddjV4Tp8gtHU4Trs
+        /uPwZR+Bu6zmJrTrZvHtU2g3YEzAmIAxAWMCxt9r0wFznyh+0rB6tQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAj0AAAKXCAYAAABpFvuJAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
