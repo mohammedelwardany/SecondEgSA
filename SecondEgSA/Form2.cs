@@ -13,6 +13,9 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using SecondEgSA.Model1;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using RecorderVideo;
+using Accord;
+using Point = System.Drawing.Point;
 
 namespace SecondEgSA
 {
@@ -29,10 +32,17 @@ namespace SecondEgSA
         int langht = 0, sub = 0, comd = 0, time = 0; int segmentation_value = 0; int X = 0, Y = 0, Z = 0;
         TimeSpan ti;
         int Squ_increase_id = 0;
+        int progress = 0;   
+        List<plan_> plan = new List<plan_>();
+        int? ack_check;
+        
 
         public string packets;
         Model1.Model1 EgSa = new Model1.Model1();
 
+
+
+        
         void value(string string_)
         {
             //var string_ = "GZ100101ff0253GZ";
@@ -90,8 +100,12 @@ namespace SecondEgSA
             InitializeComponent();
             //Form3 form3 = new Form3();
 
-
-
+            Loader = new Thread(new ThreadStart(LOADEE));
+            Loader.Start();
+            guna2PictureBox2.Hide();
+            guna2ProgressBar1.Hide();
+            startRecording.Show();
+            endRecording.Hide();
 
 
         }
@@ -106,7 +120,11 @@ namespace SecondEgSA
 
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+
+
+
+        Thread Loader;
+        async private void Form2_Load(object sender, EventArgs e)
         {
             //List<string> numbers = new List<string> {"1" ,"3" ,"4","5","6","7","7","7" };
             //for(int i =0; i<numbers.Count;i++)
@@ -114,16 +132,50 @@ namespace SecondEgSA
             //    listView2.Items.Add(numbers[i])
 
             //}
-            var last_id_in_plan_for_online = EgSa.plan_.AsEnumerable().LastOrDefault().plan_ID;
-            var Get_plan = EgSa.plan_.Where(o => o.plan_ID == last_id_in_plan_for_online).ToList();
-            foreach(var items in Get_plan)
-            {
-                var Get_command = EgSa.Commands.Where(o => o.sub_ID == items.sub_ID).Where(o => o.com_id == items.com_ID).FirstOrDefault().com_description;
-                listView1.Items.Add( Get_command);
-            }
 
 
         }
+
+
+        public void LOADEE()
+        {
+            try
+            {
+                    var Get_plan = EgSa.plan_.Where(o => o.plan_ID == packet_class.Plan_id).ToList();
+                    foreach (var items in Get_plan)
+                    {
+                        var Get_command = EgSa.Commands.Where(o => o.sub_ID == items.sub_ID).Where(o => o.com_id == items.com_ID).FirstOrDefault().com_description;
+                        var GetSubname = EgSa.Subsystems.Where(o => o.Sub_ID == items.sub_ID).FirstOrDefault();
+                         this.Invoke((MethodInvoker)delegate
+                {
+                        guna2DataGridView6.Rows.Add(items.squn_command, GetSubname.Sub_name, Get_command, items.repeat, items.delay, null);
+                    if (Get_command == "OnGoningSession")
+                    {
+                        guna2DataGridView6.Rows.Clear();
+                        listBox1.Items.Add(">> " + "No Plan To be excuted");
+                        listBox1.ForeColor = Color.Red;
+                        
+                    } ;
+                        label16.Text = packet_class.Plan_id.ToString();
+
+                });       
+                        progress += int.Parse(items.repeat) + int.Parse(items.delay);
+
+                    }
+                
+
+                    progress = progress * 2;
+                    Loader.Abort();
+            }
+            catch (Exception ex)    
+            {
+                Loader.Abort();
+            }
+        }
+
+
+
+
         private void btnExitProgram_Click(object sender, EventArgs e)
         {
 
@@ -147,9 +199,8 @@ namespace SecondEgSA
         string mes = "";
         public void guna2Button1_Click(object sender, EventArgs e)
         {
-            timer1.Start();
-            guna2ProgressBar1.Maximum = counut +5;
-
+            
+            
 
             t = new Thread(new ThreadStart(ArduinoRead));
             //t.IsBackground = true;
@@ -170,39 +221,58 @@ namespace SecondEgSA
 
         }
         string a = "";
+
+
+
+
+
+
+
         public void ArduinoRead()
         {
             try
             {
-
                 myport = new SerialPort();
                 myport.BaudRate = 19200;
                 myport.PortName = "COM3";
-                myport.Handshake = Handshake.None;
-                //myport.ReadTimeout = 500000;
+
+                //myport.Handshake = Handshake.None;
+            
                 myport.Open();
 
                 myport.WriteLine(packet_class.Number_Packets + packet_class.packet);
-                //myport.WriteLine("GZ01020502GZGZ01000502GZ");
-                //myport.WriteLine(packet_class.packet);
-                while (a != "gz0100gz\r")
+                packet_class.packet = "";
+                packet_class.Number_Packets = "";
+                packet_class.Plan_id = 0;
+
+                SetPlan();
+                timer1.Start();
+                while (a != "gz010000gz\r")
                 {
+                    guna2ProgressBar1.Maximum = progress;
+                    guna2ProgressBar1.Value = guna2ProgressBar1.Value + 1;
+
+
+
 
 
                     a = myport.ReadLine();
                     segmentation(a);
-
-                    if (segmentation_value == 5)
+                    if (segmentation_value == 0)
                     {
                         myport.Close();
                         break;
                     }
+                    SetPlan();
+                    SetAck(plan);
+
+
 
                     listBox1.Invoke((MethodInvoker)delegate
                     {
                         listBox1.ForeColor = Color.White;
 
-                       // var get_sensor_name = EgSa.Commands.Where(o => o.com_id == comd).FirstOrDefault().sensor_name;
+                        // var get_sensor_name = EgSa.Commands.Where(o => o.com_id == comd).FirstOrDefault().sensor_name;
                         // Running on the UI thread
                         listBox1.Items.Add(">> " + a);
                         if (segmentation(a) != "ZZZZ")
@@ -210,22 +280,22 @@ namespace SecondEgSA
                             switch (sub)
                             {
                                 case 0:
-                                    switch(comd)
+                                    switch (comd)
                                     {
                                         case 0:
-                                            guna2DataGridView1.Rows.Add(segmentation(a).ToString() , "", ti.ToString());
+                                            guna2DataGridView1.Rows.Add(segmentation(a).ToString(), "", ti.ToString());
                                             break;
                                         case 1:
-                                            guna2DataGridView1.Rows.Add("", segmentation(a).ToString() , ti.ToString());
+                                            guna2DataGridView1.Rows.Add("", segmentation(a).ToString(), ti.ToString());
                                             break;
 
                                     }
                                     break;
                                 case 1:
-                                    switch(comd)
+                                    switch (comd)
                                     {
                                         case 0:
-                                            guna2DataGridView2.Rows.Add(X, Y, Z , ti.ToString());
+                                            guna2DataGridView2.Rows.Add(X, Y, Z, ti.ToString());
                                             break;
                                         case 1:
                                             guna2DataGridView3.Rows.Add(X, Y, Z, ti.ToString());
@@ -236,7 +306,7 @@ namespace SecondEgSA
                                     }
                                     break;
                                 case 2:
-                                    switch(comd)
+                                    switch (comd)
                                     {
                                         case 0:
                                             guna2DataGridView5.Rows.Add(segmentation(a).ToString(), ti.ToString());
@@ -245,38 +315,7 @@ namespace SecondEgSA
                                     }
                                     break;
                             }
-                            //if (((comd == 0) && (sub == 1)) || ((comd == 1) && (sub == 1)) || ((comd == 2) && (sub == 1)))
-                            //{
-                            //    switch (comd)
-                            //    {
-                            //        case 0:
-                            //            guna2DataGridView2.Rows.Add(X, Y, Z);
-                            //            break;
-                            //        case 1:
-                            //            guna2DataGridView3.Rows.Add(X, Y, Z);
-                            //            break;
-                            //        case 2:
-                            //            guna2DataGridView4.Rows.Add(X);
-                            //            break;
-
-
-                            //    }
-                            //}
-                            //else if((comd == 0) &&(sub==2))
-                            //{
-                            //    guna2DataGridView5.Rows.Add(segmentation(a).ToString());
-
-                            //}
-                            //else
-                            //{
-                            //    // if(segmentation_value == 1) guna2ShadowPanel10.FillColor = Color.Green;
-                            //    //listView2.Items.Add(get_sensor_name + "       " + segmentation(a).ToString() + "        " + time);
-                            //}
                             var last_reslut_id = EgSa.plan_result.AsEnumerable().LastOrDefault().plan_result_id;
-                            
-                            //var plan_id_ =EgSa.plan_.AsEnumerable().LastOrDefault().plan_ID;
-                            //var squ_id = EgSa.plan_.Where(o => o.plan_ID == plan_id_).FirstOrDefault().squn_command;
-                            //squ_id--;
                             plan_result plan_Result = new plan_result
                             {
                                 plan_result_id = last_reslut_id + 1,
@@ -284,48 +323,41 @@ namespace SecondEgSA
                                 command_id = comd,
                                 sub_id = sub,
                                 time_value = time,
-                                sequance_id = Squ_increase_id+1,//squ_put in database still with 1
+                                sequance_id = Squ_increase_id,
                                 value_result = segmentation(a).ToString()
-                                
+
                             };
-                            
-                            
+                            label16.Text=plan_Result.plan_result_id.ToString(); 
+
+
                             EgSa.plan_result.Add(plan_Result);
                             EgSa.SaveChanges();
                         }
 
-
-                        //listBox1.Items.Add(">> " + a);
                         listBox1.SelectedIndex = listBox1.Items.Count - 1;
                         listBox1.SelectedIndex = -1;
 
                     });
-                    //Thread.Sleep(200);
-                    //MessageBox.Show(a);
-                    //if (a == "gz0100gz")
-                    //{
-                    //    MessageBox.Show("ended");
-                    //    break;
-                    //}
 
                 }
-                if (segmentation_value == 5)
+                if (segmentation_value == 0)
                 {
                     myport.Close();
+                    timer1.Stop();
+                    
                     t.Abort();
                 }
-                else if (segmentation_value == 3)
+                else if (segmentation_value == 1)
                 {
-                myport.Close();
-                mes = "success";
-                    packet_class.packet = "";
-                    packet_class.Number_Packets = "";
-                t.Abort();
+                    myport.Close();
+                    mes = "success";
+                    t.Abort();
 
                 }
                 else
                 {
                     myport.Close();
+                    timer1.Stop();
                     t.Abort();
                 }
             }
@@ -334,7 +366,7 @@ namespace SecondEgSA
                 myport.Close();
 
 
-                if(mes == "success")
+                if (mes == "success")
                 {
                     try
                     {
@@ -344,6 +376,8 @@ namespace SecondEgSA
                             listBox1.Items.Add(">> " + ex.Message);
                             listBox1.SelectedIndex = listBox1.Items.Count - 1;
                             listBox1.SelectedIndex = -1;
+                            guna2ProgressBar1.ProgressColor = Color.LightGreen;
+                            guna2ProgressBar1.ProgressColor2 = Color.LightGreen;
                         }
                         );
                         myport.Close();
@@ -352,74 +386,80 @@ namespace SecondEgSA
                     catch
                     {
                         myport.Close();
+                        timer1.Stop();
+
                         t.Abort();
                     }
                 }
                 else
                 {
 
-                try
-                {
-                    listBox1.Invoke((MethodInvoker)delegate
+                    try
                     {
-                        listBox1.ForeColor = Color.Red;
-                        listBox1.Items.Add(">> " + ex.Message);
-                        listBox1.SelectedIndex = listBox1.Items.Count - 1;
-                        listBox1.SelectedIndex = -1;
+                        listBox1.Invoke((MethodInvoker)delegate
+                        {
+                            listBox1.ForeColor = Color.Red;
+                            listBox1.Items.Add(">> " + ex.Message);
+                            listBox1.SelectedIndex = listBox1.Items.Count - 1;
+                            listBox1.SelectedIndex = -1;
+                            guna2ProgressBar1.ProgressColor = Color.Red;
+                            guna2ProgressBar1.ProgressColor2 = Color.Red;
+                        }
+                        );
+                        myport.Close();
+                        timer1.Stop();
+
+                        t.Abort();
                     }
-                    );
-                    myport.Close();
-                    t.Abort();
-                }
-                catch
-                {
-                    myport.Close();
-                    t.Abort();
-                }
+                    catch
+                    {
+                        myport.Close();
+                        timer1.Stop();
+
+                        t.Abort();
+                    }
                 }
 
 
-                //myport.Close();
-                //Application.ExitThread();   
-                //MessageBox.Show("Error: " + ex.ToString(), "ERROR");
 
-
-                // t.Abort();
 
             }
-
 
             string segmentation(string g)
             {
 
-                //var g = "GZ0002GZ";
+
                 if (g[2] == '0' && g[3] == '0' && g[4] == '0' && g[5] == '2')
                 {
                     //Console.Write("command understood");
                     segmentation_value = 1;
 
+                    Squ_increase_id = hex_convert(g[6]) * 16 + hex_convert(g[7]);
+
                 }
                 else if (g[2] == '0' && g[3] == '0' && g[4] == '0' && g[5] == '0')
                 {
                     //Console.Write("command executed correctly");
-                    segmentation_value = 2;
+                    segmentation_value = 1;
+                    Squ_increase_id = hex_convert(g[6]) * 16 + hex_convert(g[7]);
 
                 }
                 else if (g[2] == '0' && g[3] == '1' && g[4] == '0' && g[5] == '0')
                 {
                     //Console.Write("the all plan is executed succesfully");
-                    segmentation_value = 3;
+                    segmentation_value = 1;
                 }
                 else if (g[2] == '0' && g[3] == '0' && g[4] == '0' && g[5] == '1')
                 {
                     //Console.Write("error in command");
-                    segmentation_value = 4;
+                    segmentation_value = 0;
+                    Squ_increase_id = hex_convert(g[6]) * 16 + hex_convert(g[7]);
 
                 }
                 else if (g[2] == '0' && g[3] == '1' && g[4] == '0' && g[5] == '1')
                 {
                     //Console.Write("error in command");
-                    segmentation_value = 5;
+                    segmentation_value = 0;
 
                 }
                 else
@@ -429,8 +469,106 @@ namespace SecondEgSA
                 }
                 return "ZZZZ";
             }
+            SetPlan();
+            SetAck(plan);
+
         }
 
+        string outputPath = "D:/RVedio";
+        string finalVideName = DateTime.Now.ToString("yyyy’-‘MM’-‘dd’T’HH’:’mm’:’ss.fffffffK");
+        ScreenRecorder screenRec = new ScreenRecorder(new Rectangle(), "");
+
+        public void Record()
+        {
+            outputPath = "./recorded";
+            Rectangle bounds;
+            bounds = Screen.FromControl(this).WorkingArea;
+            //Rectangle bounds = new Rectangle(Location=this.Location,Size=this.Size);
+            //bounds = Screen.FromRectangle(new Rectangle(this.Location,(Width=this.Size.Width)));
+
+            Size size = new Size(1526, 818);
+            bounds.Location = new Point(this.Location.X + 80, this.Location.Y + 65);
+            bounds.Size = size;
+
+            //Screen bounds = ScreenCapture
+
+
+            screenRec = new ScreenRecorder(bounds, outputPath);
+
+
+        }
+        private void tmrRecorder_Tick(object sender, EventArgs e)
+        {
+            screenRec.RecordAudio();
+            screenRec.RecordVideo();
+            screenRec.GetElapsed();
+        }
+
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+
+        //    if (FolderSelected)
+        //    {
+        //        tmrRecorder.Start();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("You must select output folder before recorder, Error ");
+        //    }
+        //}
+
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    tmrRecorder.Stop();
+        //    screenRec.stop();
+        //    Application.Restart();
+        //}
+
+
+
+        private void SetPlan()
+        {
+            int lastId = EgSa.plan_.AsEnumerable().LastOrDefault().plan_ID;
+            var selected = EgSa.plan_.OrderByDescending(p => p.plan_ID).Where(p => p.plan_ID == lastId).ToList();
+            plan = selected;
+            
+
+        }
+        string mes_ack="";
+        private void SetAck(List<plan_> plan)
+        {
+
+            var command = plan.FirstOrDefault(p => p.squn_command == Squ_increase_id);
+
+            var DbCommand = EgSa.plan_.FirstOrDefault(p => p.plan_ID == command.plan_ID && p.squn_command == command.squn_command);
+            DbCommand.ack_id = segmentation_value;
+            ack_check = DbCommand.ack_id;
+
+            foreach (DataGridViewRow row in guna2DataGridView6.Rows)
+                if (ack_check == 1)
+                {
+                    row.DefaultCellStyle.BackColor = Color.GreenYellow;
+                }
+                else if (ack_check == 0)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                    row.DefaultCellStyle.ForeColor = Color.White;
+                }
+
+
+            //if (ack_check == 1)
+            //{
+            //    mes_ack = "ACK";
+            //}
+            //else
+            //{
+            //    mes_ack = "NONACK";
+            //}
+            plan.Remove(command);
+
+            EgSa.SaveChanges();
+        }
 
         private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -481,23 +619,62 @@ namespace SecondEgSA
         {
 
         }
-        int counut = 0;
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
             #region progersse
-            //if (guna2ProgressBar1.Value >= counut + 5)
-            //{
-            //    guna2ProgressBar1.Value = counut + 5;
-            //}
-            //else
-            //{
-            //    guna2ProgressBar1.Value = guna2ProgressBar1.Value +1;
-            //}
 
-            //var last_Plan_id = EgSa.plan_.AsEnumerable().LastOrDefault().plan_ID;
-            //var time_value_result = EgSa.plan_result.AsEnumerable().Where(o => o.plan_id == last_Plan_id).LastOrDefault().time_value;
-            //counut = (int)time_value_result;
+            
             #endregion
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            Form3 f3 = new Form3();
+            f3.Show();
+            this.Hide();
+        }
+
+        private void guna2DataGridView6_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2PictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void endRecording_Click(object sender, EventArgs e)
+        {
+            startRecording.Show();
+            endRecording.Hide();
+
+            MessageBox.Show("Test");
+            tmrRecorder.Stop();
+            screenRec.stop();
+            guna2PictureBox2.Hide();
+        }
+
+        private void startRecording_Click(object sender, EventArgs e)
+        {
+            startRecording.Hide();
+            endRecording.Show();
+
+            tmrRecorder.Start();
+            guna2PictureBox2.Show();
+        }
+
+        private void tmrRecorder_Tick_1(object sender, EventArgs e)
+        {
+            screenRec.RecordAudio();
+            screenRec.RecordVideo();
+            label1.Text = screenRec.GetElapsed();
         }
 
         private void guna2DataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -11,6 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SecondEgSA.Model1;
+using VisioForge.Libs.MediaFoundation.OPM;
 //using SecondEgSA.Model;
 namespace SecondEgSA
 {
@@ -55,15 +56,12 @@ namespace SecondEgSA
         #endregion
         public Form3()
         {
+            
             InitializeComponent();
+            
         }
 
         private void guna2Button4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
 
         }
@@ -310,9 +308,16 @@ namespace SecondEgSA
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            PushData();
+            PushMsg = "pushed";
+        }
+
+        public void PushData()
+        {
             var Get_last_planID = EgSA.plan_.AsEnumerable().LastOrDefault().plan_ID;
-            
+
             int last_ID = Get_last_planID + 1;
+            packet_class.Plan_id = last_ID;
             //var Get_Command = 
             //var Get_sub = EgSA.Subsystems.to
 
@@ -323,7 +328,7 @@ namespace SecondEgSA
             {
                 var Com_id = guna2DataGridView1.Rows[i].Cells["Column3"].Value.ToString();
                 var Sub_name = guna2DataGridView1.Rows[i].Cells["Column2"].Value.ToString();
-                Model1.plan_  p = new Model1.plan_
+                Model1.plan_ p = new Model1.plan_
                 {
                     com_ID = EgSA.Commands.Where(o => o.com_description == Com_id).FirstOrDefault().com_id,
 
@@ -349,7 +354,7 @@ namespace SecondEgSA
             guna2DateTimePicker1.Hide();
             guna2TextBox1.Hide();
 
-            
+
             MessageBox.Show(packet_class.packet);
             //myport = new SerialPort();
             //myport.BaudRate = 9600;
@@ -359,15 +364,32 @@ namespace SecondEgSA
             //myport.Close();
             //packet = "";
         }
-
+        string PushMsg = "";
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            guna2DataGridView1.Rows.Clear();
-            MessageBox.Show(packet_class.Number_Packets+packet_class.packet);
+            try
+            {
+                if (PushMsg != "pushed")
+                {
+                    PushData();
+                    PushMsg = "pushed";
+                }
+
+
+            
             Form2 form2 = new Form2();
             form2.Show();
+
+            guna2DataGridView1.Rows.Clear();
             
             this.Hide();
+            }
+            catch
+            {
+            MessageBox.Show("there is an problem:::"+packet_class.Number_Packets+packet_class.packet);
+
+
+            }
         }
 
         private void guna2Panel1_Paint(object sender, PaintEventArgs e)
@@ -388,13 +410,15 @@ namespace SecondEgSA
         {
             try
             {
-                label5.Hide();
-                label1.Hide();
-                label6.Hide();
-                guna2ComboBox3.Hide(); // hide combobox
-                guna2TextBox1.Hide(); // hide textBox
-                guna2DateTimePicker1.Hide(); // ......
-
+                this.Invoke((MethodInvoker)delegate
+                {
+                    label5.Hide();
+                    label1.Hide();
+                    label6.Hide();
+                    guna2ComboBox3.Hide(); // hide combobox
+                    guna2TextBox1.Hide(); // hide textBox
+                    guna2DateTimePicker1.Hide(); // ......
+                });
                 var G = EgSA.Commands.ToList(); // select all in table and put in list
 
                 //foreach (var o in G)  // add all com_type in table 
@@ -427,22 +451,94 @@ namespace SecondEgSA
             }
             catch (Exception ex)
             {
-                MessageBox.Show("close?","error");
+                //MessageBox.Show(ex.Message);
                 loadar.Abort();
             }
 
         }
         Thread loadar;
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            selectOption se = new selectOption();
+            se.Show();
+            this.Hide();
+        }
+
+        private void guna2Button4_Click_1(object sender, EventArgs e)
+        {
+            var plan_id = int.Parse(guna2TextBox5.Text);
+            packet_class.Plan_id = plan_id;
+            var Getplan = EgSA.plan_.Where(p => p.plan_ID == plan_id).ToList();
+            string get_delay, sub_name, com_name, get_repeat;
+            var code = "GZ";
+            int Squ_ = 0;
+            foreach (var item in Getplan)
+            {
+                var GetComamandName = EgSA.Commands.Where(o => o.com_id == item.com_ID).FirstOrDefault();
+                var Getsubsystemname = EgSA.Subsystems.Where(o => o.Sub_ID == item.sub_ID).FirstOrDefault();
+
+                if (GetComamandName != null)
+                {
+
+
+
+
+                    guna2DataGridView1.Rows.Add(item.squn_command, Getsubsystemname.Sub_name, GetComamandName.com_description,
+                        item.delay,
+                       item.repeat,
+                        item.para1_desc,
+                        item.para2_desc,
+                        item.para3_desc);
+
+
+                    get_repeat = Checklength_hex(int.Parse(item.repeat));
+                    get_delay = Checklength_hex(int.Parse(item.delay));
+
+
+
+
+                    com_name = Checklength_hex(item.com_ID);
+                    sub_name = Checklength_hex(item.sub_ID);
+
+
+
+
+
+
+
+
+
+                    packet_class.packet += (code + sub_name + com_name + get_repeat + get_delay + code);
+                    Squ_ = item.squn_command;
+
+
+
+
+                }
+                packet_class.Number_Packets = "GZ" + Checklength_hex(Squ_) + "GZ";
+
+                //var anthor_serial_command = H.com_id;
+
+            }
+        }
+
         private void Form3_Load(object sender, EventArgs e)
         {
 
-            
 
 
-            loader();
-          
-            
+           
 
+
+
+            loadar = new Thread(new ThreadStart(loader));
+            loadar.Start();
         }
     }
 }

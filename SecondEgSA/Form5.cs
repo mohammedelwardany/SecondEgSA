@@ -20,10 +20,17 @@ namespace SecondEgSA
 
         private void Form5_Load(object sender, EventArgs e)
         {
-        
+            Splash();
             
         }
+        private async void Splash()
+        {
 
+            await Task.Delay(8000); //wait for 5 seconds asynchronously 
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Hide();
+        }
         private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
 

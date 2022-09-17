@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,18 +16,10 @@ namespace SecondEgSA
     {
         public Form1()
         {
-            Thread t = new Thread(new ThreadStart(splash));
-            t.Start();
-            Thread.Sleep(8000);
-            InitializeComponent();
-            t.Abort();
-
+            InitializeComponent();  
         }
 
-        public void splash()
-        {
-            Application.Run(new Form5());
-        }
+    
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -50,9 +43,24 @@ namespace SecondEgSA
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
-            form3.Show();
+            if(guna2TextBox1.Text=="admin" && guna2TextBox2.Text=="admin")
+            {
+selectOption se = new selectOption();
+            se.Show();
             this.Hide();
+            }else
+            { MessageBox.Show("warnning", "username or bassword is wrong"); }
+            
+        }
+
+        private void guna2TextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

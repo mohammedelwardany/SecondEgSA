@@ -24,11 +24,11 @@ namespace SecondEgSA.Model1
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int squn_command { get; set; }
 
-        public int? com_ID { get; set; }
+        public int com_ID { get; set; }
 
         public string EX_time { get; set; }
 
-        public int? sub_ID { get; set; }
+        public int sub_ID { get; set; }
 
         public string para1_desc { get; set; }
 

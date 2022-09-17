@@ -10,6 +10,7 @@ namespace SecondEgSA.Model1
     {
         public static string packet { get; set; }
         public static string Number_Packets { get; set; }
+        public static int Plan_id { get; set; }
 
     }
 }
