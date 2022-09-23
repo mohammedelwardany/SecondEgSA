@@ -322,10 +322,13 @@ namespace SecondEgSA
             //var Get_sub = EgSA.Subsystems.to
 
 
-
+            try
+            {
 
             for (int i = 0; i < guna2DataGridView1.Rows.Count; i++)
             {
+                
+
                 var Com_id = guna2DataGridView1.Rows[i].Cells["Column3"].Value.ToString();
                 var Sub_name = guna2DataGridView1.Rows[i].Cells["Column2"].Value.ToString();
                 Model1.plan_ p = new Model1.plan_
@@ -346,7 +349,14 @@ namespace SecondEgSA
 
                 EgSA.plan_.Add(p);
                 EgSA.SaveChanges();
+                
 
+            }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
 
@@ -526,6 +536,11 @@ namespace SecondEgSA
                 //var anthor_serial_command = H.com_id;
 
             }
+        }
+
+        private void guna2TextBox4_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void Form3_Load(object sender, EventArgs e)

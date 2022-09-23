@@ -336,7 +336,9 @@ namespace SecondEgSA
 
         async public void SetValue()
         {
-           
+            try
+            {
+
             Get_Plan_ID = int.Parse(guna2TextBox1.Text);
             var Max_Time_of_plan = EgSa.plan_result.Where(o => o.plan_id == Get_Plan_ID).AsEnumerable().LastOrDefault();
             guna2TrackBar1.Maximum = (int)Max_Time_of_plan.time_value;
@@ -354,6 +356,11 @@ namespace SecondEgSA
             }
             msg = "";
             handleResult.Abort();
+            }
+            catch
+            {
+                MessageBox.Show("please enter plan id");
+            }
 
         }
 
